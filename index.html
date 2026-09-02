@@ -7,20 +7,32 @@
 
     <title>CGT — Crochet Grind Tracker</title>
 
-   <link rel="stylesheet" href="css/style.css?v=0.2">
+   <link rel="stylesheet" href="css/style.css?v=0.3">
 </head>
 
 <body>
 
     <header class="hud">
         <div class="hud-player">
-            <input
-                id="player-name"
-                class="player-name"
-                type="text"
-                placeholder="Your name"
-                maxlength="20"
-            >
+            <div class="player-name-row">
+                <input
+                    id="player-name"
+                    class="player-name"
+                    type="text"
+                    placeholder="Your name"
+                    maxlength="20"
+                >
+
+                <button
+                    id="stats-button"
+                    class="stats-button"
+                    type="button"
+                    aria-label="Character stats"
+                    title="Character Stats"
+                >
+                    ◈ Stats
+                </button>
+            </div>
 
             <p id="player-level" class="player-level">Lv. 1 — Yarn Noob</p>
 
@@ -63,7 +75,7 @@
 
     <main id="home-view" class="app">
         <section class="page-intro">
-            <p class="eyebrow">CGT · v0.2</p>
+            <p class="eyebrow">CGT · v0.4</p>
 
             <h1>Crochet Grind Tracker</h1>
 
@@ -93,6 +105,23 @@
         <div id="lesson-content" class="view-content"></div>
     </section>
 
+
+    <section id="stats-view" class="full-view hidden">
+        <header class="view-header">
+            <button id="stats-back" class="back-button" type="button">
+                ← Back
+            </button>
+
+            <span>Character Stats</span>
+        </header>
+
+        <div class="view-content">
+            <p class="eyebrow">Character Sheet</p>
+            <h2>Your Crochet Stats</h2>
+            <p>Stats unlock as you begin new lessons and grow automatically from the counters you already track.</p>
+            <div id="stats-content"></div>
+        </div>
+    </section>
 
     <section id="sticker-view" class="full-view hidden">
         <header class="view-header">
@@ -130,7 +159,7 @@
         <div class="view-content">
             <p class="eyebrow">Quick Reference</p>
 
-            <h2>What the fuck does that code mean?</h2>
+            <h2>What does that crochet code mean?</h2>
 
             <section class="detail-block">
                 <h3>Common abbreviations</h3>
@@ -192,7 +221,7 @@
     </section>
 
 
-   <script src="js/script.js?v=0.2"></script>
+   <script src="js/script.js?v=0.4"></script>
 </body>
 
 </html>
