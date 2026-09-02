@@ -74,6 +74,18 @@ input {
     padding: 5px 7px;
 }
 
+.player-name-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.stats-button {
+    padding: 5px 9px;
+    white-space: nowrap;
+}
+
 .player-level,
 .equipped-badge {
     margin: 6px 0 0;
@@ -575,4 +587,45 @@ td {
     .sticker-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+/* ========================================
+   CHARACTER STATS + ROADMAP
+======================================== */
+
+.stats-group {
+    margin-top: 26px;
+}
+
+.stats-list {
+    margin-top: 10px;
+    border: 1px solid #000;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 11px 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.stat-row:last-child {
+    border-bottom: 0;
+}
+
+.stats-empty,
+.placeholder-copy {
+    margin-top: 24px;
+    line-height: 1.5;
+}
+
+.reward-box.complete {
+    background: #eee;
+    border-width: 2px;
+}
+
+.lesson-card.planned {
+    opacity: 0.72;
+    border-style: dotted;
 }
