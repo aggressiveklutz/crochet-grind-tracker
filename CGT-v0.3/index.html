@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CGT — Crochet Grind Tracker</title>
+
+   <link rel="stylesheet" href="css/style.css?v=0.3">
+</head>
+
+<body>
+
+    <header class="hud">
+        <div class="hud-player">
+            <div class="player-name-row">
+                <input
+                    id="player-name"
+                    class="player-name"
+                    type="text"
+                    placeholder="Your name"
+                    maxlength="20"
+                >
+
+                <button
+                    id="stats-button"
+                    class="stats-button"
+                    type="button"
+                    aria-label="Character stats"
+                    title="Character Stats"
+                >
+                    ◈ Stats
+                </button>
+            </div>
+
+            <p id="player-level" class="player-level">Lv. 1 — Yarn Noob</p>
+
+            <div class="xp-row">
+                <span>XP</span>
+
+                <div class="xp-bar" aria-hidden="true">
+                    <div id="xp-fill" class="xp-fill"></div>
+                </div>
+
+                <span id="player-xp">0 / 250</span>
+            </div>
+
+            <p id="equipped-badge" class="equipped-badge">Badge: none equipped</p>
+        </div>
+
+        <nav class="hud-actions" aria-label="CGT tools">
+            <button
+                id="dictionary-button"
+                class="icon-button"
+                type="button"
+                aria-label="Crochet dictionary"
+                title="Crochet Dictionary"
+            >
+                ?
+            </button>
+
+            <button
+                id="sticker-button"
+                class="icon-button"
+                type="button"
+                aria-label="Sticker book"
+                title="Sticker Book"
+            >
+                ◫
+            </button>
+        </nav>
+    </header>
+
+
+    <main id="home-view" class="app">
+        <section class="page-intro">
+            <p class="eyebrow">CGT · v0.4</p>
+
+            <h1>Crochet Grind Tracker</h1>
+
+            <p>
+                Grind the basics. Unlock stickers.
+                Become dangerously overprepared.
+            </p>
+        </section>
+
+        <div id="course-container"></div>
+
+        <button id="reset-progress" class="reset-button" type="button">
+            Reset all progress
+        </button>
+    </main>
+
+
+    <section id="lesson-view" class="full-view hidden">
+        <header class="view-header">
+            <button id="lesson-back" class="back-button" type="button">
+                ← Back
+            </button>
+
+            <span id="lesson-number">Lesson</span>
+        </header>
+
+        <div id="lesson-content" class="view-content"></div>
+    </section>
+
+
+    <section id="stats-view" class="full-view hidden">
+        <header class="view-header">
+            <button id="stats-back" class="back-button" type="button">
+                ← Back
+            </button>
+
+            <span>Character Stats</span>
+        </header>
+
+        <div class="view-content">
+            <p class="eyebrow">Character Sheet</p>
+            <h2>Your Crochet Stats</h2>
+            <p>Stats unlock as you begin new lessons and grow automatically from the counters you already track.</p>
+            <div id="stats-content"></div>
+        </div>
+    </section>
+
+    <section id="sticker-view" class="full-view hidden">
+        <header class="view-header">
+            <button id="sticker-back" class="back-button" type="button">
+                ← Back
+            </button>
+
+            <span>Sticker Book</span>
+        </header>
+
+        <div class="view-content">
+            <p class="eyebrow">Collection</p>
+
+            <h2>My Stickers</h2>
+
+            <p>
+                Complete core goals to unlock stickers.
+                Tap an unlocked sticker to equip or unequip it.
+            </p>
+
+            <div id="sticker-grid" class="sticker-grid"></div>
+        </div>
+    </section>
+
+
+    <section id="dictionary-view" class="full-view hidden">
+        <header class="view-header">
+            <button id="dictionary-back" class="back-button" type="button">
+                ← Back
+            </button>
+
+            <span>Crochet Dictionary</span>
+        </header>
+
+        <div class="view-content">
+            <p class="eyebrow">Quick Reference</p>
+
+            <h2>What does that crochet code mean?</h2>
+
+            <section class="detail-block">
+                <h3>Common abbreviations</h3>
+
+                <dl class="dictionary-list">
+                    <div><dt>ch</dt><dd>chain</dd></div>
+                    <div><dt>st</dt><dd>stitch</dd></div>
+                    <div><dt>sl st</dt><dd>slip stitch</dd></div>
+                    <div><dt>sc</dt><dd>single crochet — US</dd></div>
+                    <div><dt>hdc</dt><dd>half double crochet — US</dd></div>
+                    <div><dt>dc</dt><dd>double crochet — meaning depends on US/UK terminology</dd></div>
+                    <div><dt>inc</dt><dd>increase</dd></div>
+                    <div><dt>dec</dt><dd>decrease</dd></div>
+                    <div><dt>MR</dt><dd>magic ring</dd></div>
+                    <div><dt>R / Row</dt><dd>row</dd></div>
+                    <div><dt>Rnd</dt><dd>round</dd></div>
+                    <div><dt>x6</dt><dd>repeat six times</dd></div>
+                    <div><dt>(24)</dt><dd>24 stitches total at the end</dd></div>
+                </dl>
+            </section>
+
+            <section class="detail-block">
+                <h3>US vs UK terminology</h3>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>US</th>
+                                <th>UK</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>single crochet — sc</td>
+                                <td>double crochet — dc</td>
+                            </tr>
+
+                            <tr>
+                                <td>half double crochet — hdc</td>
+                                <td>half treble — htr</td>
+                            </tr>
+
+                            <tr>
+                                <td>double crochet — dc</td>
+                                <td>treble — tr</td>
+                            </tr>
+
+                            <tr>
+                                <td>treble crochet — tr</td>
+                                <td>double treble — dtr</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </section>
+
+
+   <script src="js/script.js?v=0.4"></script>
+</body>
+
+</html>
